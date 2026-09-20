@@ -40,15 +40,8 @@
 
     <!-- Main Styling Engine Form -->
     <section class="glass-card">
-      <!-- Skin Tone / Complexion Matcher -->
-      <div class="control-group">
-        <label for="skin-tone-select">SKIN TONE / COMPLEXION MATCHER</label>
-        <select id="skin-tone-select">
-          <option value="Wheatish / Medium Complexion (Default)">Wheatish / Medium Complexion (Default)</option>
-          <option value="Fair Complexion">Fair Complexion</option>
-          <option value="Dusk / Deep Complexion">Dusk / Deep Complexion</option>
-        </select>
-      </div>
+      <!-- Hidden element for JS compatibility -->
+      <select id="skin-tone-select" style="display:none;"><option value="Wheatish / Medium Complexion (Default)">Default</option></select>
 
       <!-- Upper Wear -->
       <div class="control-group">
