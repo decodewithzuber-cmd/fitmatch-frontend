@@ -40,7 +40,165 @@
 
     <!-- Main Styling Engine Form -->
     <section class="glass-card">
-      <!-- Hidden inputs to keep JavaScript running smoothly -->
+      <!-- Hidden inputs for script compatibility -->
+      <div style="display:none;">
+        <input type="text" id="upper-input" value="">
+        <input type="text" id="bottom-input" value="">
+        <input type="text" id="shoe-input" value="">
+        <input type="text" id="custom-input" value="">
+        <select id="skin-tone-select"><option value="Default">Default</option></select>
+      </div>
+
+      <!-- Occasion & Vibe Sync -->
+      <div class="control-group">
+        <label for="occasion-select">OCCASION & VIBE SYNC</label>
+        <select id="occasion-select">
+          <option value="College / Daily Study">College / Daily Study (Casual Vibe)</option>
+          <option value="Gym / Workout">Gym / Workout (Hype Vibe)</option>
+          <option value="Date Night / Casual Evening">Date Night / Casual Evening (Smooth Vibe)</option>
+          <option value="Weekend Hangout / Beach Bay">Weekend Hangout / Beach Bay (Indie Vibe)</option>
+          <option value="Night Party / Clubbing">Night Party / Clubbing (EDM Vibe)</option>
+        </select>
+      </div>
+
+      <button id="suggest-btn" class="accent-btn">✨ Mujhe Suggest Karo Kya Pehnu!</button>
+
+      <!-- Target Budget Tier -->
+      <div class="control-group budget-section">
+        <label>TARGET BUDGET TIER</label>
+        <div class="budget-pills">
+          <button class="pill active" data-budget="Budget (Under ₹1,000)">Budget <br><small>&lt; ₹1k</small></button>
+          <button class="pill" data-budget="Mid-Tier (₹1,000 - ₹2,500)">Mid-Tier <br><small>₹1k-₹2.5k</small></button>
+          <button class="pill" data-budget="Premium (₹2,500+)">Premium <br><small>₹2,500+</small></button>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-row">
+        <button id="match-btn" class="primary-btn flex-btn">
+          <span class="btn-text">Curate Complete Look</span>
+          <span id="match-spinner" class="spinner hidden"></span>
+        </button>
+        <button id="surprise-btn" class="secondary-btn">🎲 Surprise Me</button>
+      </div>
+    </section>
+
+    <!-- Results Box -->
+    <section id="result-box" class="glass-card hidden result-card">
+      <h3>✨ Curated Humanoid Look</h3>
+      <div class="result-content">
+        <div class="outfit-image-wrapper">
+          <img id="outfit-result-img" src="" alt="Curated Outfit">
+          <span id="vibe-badge" class="vibe-tag">VIBE</span>
+        </div>
+        <div class="outfit-details">
+          <div class="score-badge" id="score-tag">⭐ Style Score: 98%</div>
+          
+          <div class="item-row">
+            <strong>👕 Upper Wear:</strong> <span id="top-wear-text">-</span>
+            <div class="store-links">
+              <a href="#" id="top-amazon" target="_blank">Amazon</a>
+              <a href="#" id="top-myntra" target="_blank">Myntra</a>
+              <a href="#" id="top-flipkart" target="_blank">Flipkart</a>
+            </div>
+          </div>
+
+          <div class="item-row">
+            <strong>👖 Bottom Wear:</strong> <span id="bottom-wear-text">-</span>
+            <div class="store-links">
+              <a href="#" id="bottom-amazon" target="_blank">Amazon</a>
+              <a href="#" id="bottom-myntra" target="_blank">Myntra</a>
+              <a href="#" id="bottom-flipkart" target="_blank">Flipkart</a>
+            </div>
+          </div>
+
+          <div class="item-row">
+            <strong>👟 Footwear:</strong> <span id="footwear-text">-</span>
+            <div class="store-links">
+              <a href="#" id="shoe-amazon" target="_blank">Amazon</a>
+              <a href="#" id="shoe-myntra" target="_blank">Myntra</a>
+              <a href="#" id="shoe-flipkart" target="_blank">Flipkart</a>
+            </div>
+          </div>
+
+          <div class="item-row">
+            <strong>⌚ Accessories:</strong> <span id="accessory-text">-</span>
+          </div>
+
+          <div class="item-row tip-box">
+            <strong>💡 Pro Tip:</strong> <span id="tip-text">-</span>
+          </div>
+
+          <div class="spotify-sync">
+            🎵 <strong>Vibe Playlist:</strong> <a href="#" id="spotify-link" target="_blank"><span id="vibe-name">Open on Spotify</span></a>
+          </div>
+
+          <button id="whatsapp-btn" class="whatsapp-btn">📤 Share on WhatsApp</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section class="glass-card feedback-card">
+      <div class="card-header">
+        <span class="icon">💡</span> APP FEEDBACK & SUGGESTIONS
+      </div>
+      <p class="card-desc">Hamein batayen ki is app me kya kami hai ya kya naya feature chahiye:</p>
+      
+      <div class="control-group">
+        <textarea id="feedback-input" placeholder="Apna feedback yahan likho..."></textarea>
+      </div>
+      <button id="feedback-submit-btn" class="primary-btn">Submit Feedback</button>
+      <p id="feedback-msg" class="hidden success-msg">✅ Feedback submitted successfully! Thank you.</p>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitMatch Studio - Ultimate Humanoid Styling Engine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Wallpaper Rotator -->
+  <div id="bg-wallpaper" class="bg-fashion-wallpaper"></div>
+
+  <div class="main-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="badge">HUMANOID STUDIO V2</div>
+      <button id="theme-toggle" class="theme-btn" title="Toggle Theme">💡</button>
+      <h1>Fit<span class="highlight">Match</span></h1>
+      <p class="subtitle">AI-Powered High-End Apparel Styling Engine</p>
+    </header>
+
+    <!-- Quick Ask Humanoid Box -->
+    <section class="glass-card">
+      <div class="card-header">
+        <span class="icon">⚡</span> ADVANCED HUMANOID AI
+      </div>
+      <p class="card-desc">Kuch bhi poocho: kya pehenna hai, kis occasion ke liye, ya koi bhi styling advice!</p>
+      
+      <div class="control-group">
+        <input type="text" id="quick-input" placeholder="Apna sawal yahan type karo... (Press Enter to ask)">
+      </div>
+      <button id="quick-ask-btn" class="primary-btn">Ask Humanoid Directly</button>
+
+      <div id="quick-result-box" class="hidden quick-answer-box">
+        <h4>🤖 Humanoid Advice:</h4>
+        <p id="quick-result-text"></p>
+      </div>
+    </section>
+
+    <!-- Main Styling Engine Form -->
+    <section class="glass-card">
+      <!-- Hidden inputs for script compatibility -->
       <div style="display:none;">
         <input type="text" id="upper-input" value="">
         <input type="text" id="bottom-input" value="">
